@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
 
+    private static final String TAG = ResultActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,6 @@ public class ResultActivity extends AppCompatActivity {
         int n = (int) (fee*10 + 0.5f); //取到 "小數點後一位" 四捨五入
         float a = (float)n/10;
         feeText.setText(a+"");
-        Log.d("ResultActivity",a + " ");
+        Log.d(TAG, a + " ");
     }
 }
