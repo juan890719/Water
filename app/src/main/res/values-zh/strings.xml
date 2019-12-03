@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">算水費</string>
+    <string name="water_fee">水費 :</string>
+    <string name="month">本月抄表</string>
+    <string name="result">結果</string>
+    <string name="action_settings">設定</string>
+</resources>

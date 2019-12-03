@@ -6,20 +6,61 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     EditText ed_Month;
     EditText ed_Next;
+    boolean isNext = false;
+    public static final String TAG = MainActivity.class.getSimpleName();
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG , "onRestart");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG , "onDestroy");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG , "onStop");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG , "onPause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG , "onResume");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG , "onStart");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ed_Month = findViewById(R.id.month);
-        ed_Next = findViewById(R.id.next);
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +123,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        Switch sw = findViewById(R.id.sw);
+        sw.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                isNext = isChecked;
+                TextView text = findViewById(R.id.type);
+                text.setText(isNext ? "Evert other month" : "Month");
+            }
+        });
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -93,10 +143,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public void water(View view) {
-
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

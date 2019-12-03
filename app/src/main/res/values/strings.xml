@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Water</string>
     <string name="action_settings">Settings</string>
+    <string name="water_fee">Water fee :</string>
+    <string name="result">Result</string>
+    <string name="month">Month</string>
 </resources>
